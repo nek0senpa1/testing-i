@@ -35,13 +35,13 @@ describe('enhancer.js', ()=> {
 
             expect(succeed(
                 {
-                    name: 'Sword',
+                    name: 'Shield',
                     enhancement: 15,
                     durability: 90,
                 }
             )).toEqual (
                 {
-                    name: 'Sword',
+                    name: 'Shield',
                     enhancement: 16,
                     durability: 90,
                 }
@@ -49,6 +49,59 @@ describe('enhancer.js', ()=> {
 
         })
         
+    })
+
+
+    describe('fail()', function headhurts(){
+        
+        it('enhancement less than 15', () => {
+            expect(fail(
+                {
+                    name: 'Dagger',
+                    enhancement: 14,
+                    durability: 90,
+                }
+            )).toEqual(
+                {
+                    name: 'Dagger',
+                    enhancement: 14,
+                    durability: 85,
+                }
+            )
+        })
+
+        it('enhancement 15', ()=> {
+            expect(fail(
+                {
+                    name: 'Dagger',
+                    enhancement: 15,
+                    durability: 90,
+                }
+            )).toEqual(
+                {
+                    name: 'Dagger',
+                    enhancement: 15,
+                    durability: 80,
+                }
+            )
+        })
+
+        it('enahcement 16+', ()=> {
+            expect(fail(
+                {
+                    name: 'Dagger',
+                    enhancement: 17,
+                    durability: 90,
+                }
+            )).toEqual(
+                {
+                    name: 'Dagger',
+                    enhancement: 16,
+                    durability: 80,
+                }
+            )
+        })
+
     })
 
 })
