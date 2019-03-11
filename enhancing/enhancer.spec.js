@@ -51,6 +51,26 @@ describe('enhancer.js', ()=> {
         
     })
 
+    describe('name upgrade', () =>{
+
+        it('successful name upgrade', function nameyname() {
+
+            expect(get(
+                {
+                    name: 'Staff',
+                    enhancement: 16,
+                    durability: 90,
+                }
+            )).toEqual(
+                {
+                    name: '[+16] Staff',
+                    enhancement: 16,
+                    durability: 90,
+                }
+            )
+        })
+    })
+
 
     describe('fail()', function headhurts(){
         
